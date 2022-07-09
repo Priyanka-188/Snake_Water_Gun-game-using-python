@@ -1,0 +1,44 @@
+import random  #import random module to generate random number
+
+def gameWin(comp, you):           # function to decide who wins (computer or you)
+    if comp == you:               # if computer and you entered same choices 
+        return "None!"
+    elif comp == "s":
+        if you =="w":
+            return False
+        elif you == "g":
+            return True
+    elif comp == "w":
+        if you == "g":
+            return False
+        elif you =="s":
+            return True
+    elif comp == "g":
+        if you == "s":
+            return False
+        elif you == "w":
+            return True
+
+
+print("\nComputer's turn :snake(s), water(w), gun(g)?")       # computer's input using random.ranint module 
+rand_NO = random.randint(1, 3)                                #randint method will generete either of three numbers 1,2,3
+if rand_NO == 1:
+    comp = "s"
+elif rand_NO == 2:
+    comp = "w"
+else:
+    comp = "g"
+
+you = input("Your turn :Enter either of snake(s), water(w), gun(g) ?  ")       # Taking input from the user
+result = gameWin(comp,you)                                                     # calling the gameWin function
+
+print(f"Computer entered {comp}")
+print(f"You entered {you}")
+
+#result printing on the screen 
+if result=="None!":
+    print("The game is a tie")
+elif result ==True:
+    print("Congrats! You Won!")
+else:
+    print("You loss!")
